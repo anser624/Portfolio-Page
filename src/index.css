@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@layer utilities {
+    /* Slide in from left */
+    .apna-slide-left {
+      animation: apnaSlideLeft 1.2s ease-in-out forwards;
+      opacity: 0;
+    }
+  
+    /* Slide in from right */
+    .apna-slide-right {
+      animation: apnaSlideRight 1.2s ease-out forwards;
+      opacity: 0;
+    }
+  
+    @keyframes apnaSlideLeft {
+      from { opacity: 0; transform: translateX(320px); }
+      to { opacity: 1; transform: translateX(0px); }
+    }
+  
+    @keyframes apnaSlideRight {
+      from { opacity: 0; transform: translateX(-140px); }
+      to { opacity: 1; transform: translateX(20%); }
+    }
+  }
