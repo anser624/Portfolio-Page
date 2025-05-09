@@ -1,8 +1,18 @@
 import { FaReact, FaJs, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub, FaFire } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss, SiBootstrap, SiFirebase } from "react-icons/si";
 import { motion } from "framer-motion";
+import {useContext } from "react";
+import {themecontext} from "../../App";
+
+
 
 const About = () => {
+
+  const themeCont = useContext(themecontext)
+
+  const {theme,toggleTheme} = themeCont ;
+
+
   // Tech icons data
   const techIcons = [
     { icon: <FaReact className="text-[#61DAFB]" />, name: "React" },
@@ -39,7 +49,8 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 px-4 bg-gradient-to-br from-gray-900 to-blue-900">
+    <section id="about" className={`py-20 px-4 
+    ${theme === 'dark' ? "bg-gradient-to-br from-gray-900 to-blue-900" : "bg-gradient-to-br from-gray-100 to-blue-400"}`}>
       <div className="container mx-auto max-w-6xl">
         {/* Animated Header */}
         <motion.div
@@ -48,8 +59,8 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            About <span className="text-cyan-300">Me</span>
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+            About <span className={`${theme === "dark" ? "text-cyan-300" : "text-cyan-700" }`}>Me</span>
           </h2>
           <div className="w-20 h-1 bg-cyan-400 mx-auto"></div>
         </motion.div>
@@ -62,7 +73,8 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="bg-gray-800/50 p-8 rounded-xl animate-pulse backdrop-blur-sm border border-cyan-400/20"
+            className={`p-8 rounded-xl backdrop-blur-sm border border-cyan-400/20 
+              ${theme === "dark" ? "bg-gray-950" : "bg-slate-700"}`}
           >
             <h3 className="text-2xl font-bold mb-6 text-cyan-300 flex items-center gap-2">
               <FaFire className="text-orange-400" /> 
@@ -90,17 +102,23 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">
-              I Build <span className="text-yellow-300">Digital Experiences</span>
+            <h3 className={`text-2xl md:text-3xl font-bold mb-6 ${theme === "dark" ?"text-white" :"text-gray-950"}`}>
+              I Build <span className={`${theme === "dark" ? "text-yellow-300" : "text-yellow-600"}`}>Digital Experiences</span>
             </h3>
             
             <motion.p 
-              className="text-lg mb-6 text-gray-300"
+              className={`text-lg mb-6 ${theme === "dark" ? "text-gray-300" : "text-gray-800"}`}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              Hi, I'm <span className="text-cyan-300 font-medium">Ansar Malik</span>, specializing in <span className="text-yellow-300">React.js</span>, <span className="text-blue-300">Firebase</span>, and <span className="text-purple-300">Bootstrap</span>. I create <span className="font-bold">high-performance</span> web applications with modern tech stacks.
+              Hi, I'm <span className={`${theme==="dark"?"text-cyan-300":"text-cyan-600"} font-medium`}>
+                Ansar Malik</span>, specializing in 
+                <span className={`${theme==="dark"?"text-yellow-300":"text-yellow-600"}`}>React.js</span>, 
+                <span className={`${theme==="dark"?"text-blue-300":"text-blue-600"}`}>Firebase</span>, 
+                and <span className={`${theme==="dark"?"text-purple-300":"text-purple-600"}`}>Bootstrap</span>. 
+                I create <span className="font-bold">high-performance</span>
+                 web applications with modern tech stacks.
             </motion.p>
 
             <motion.div 
@@ -110,20 +128,20 @@ const About = () => {
               transition={{ delay: 0.4 }}
             >
               <div className="flex items-start">
-                <span className="text-yellow-400 mr-3 text-xl">✦</span>
-                <p className="text-gray-300">
+                <span className={`${theme==="dark"?"text-yellow-400":"text-yellow-700"} mr-3 text-xl`}>✦</span>
+                <p className={`${theme === "dark" ? "text-gray-300":"text-gray-800"}`}>
                   <span className="font-medium">4+ Projects</span> built with React & Firebase
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-yellow-400 mr-3 text-xl">✦</span>
-                <p className="text-gray-300">
+                <span className={`${theme==="dark"?"text-yellow-400":"text-yellow-700"} mr-3 text-xl`}>✦</span>
+                <p className={`${theme === "dark" ? "text-gray-300":"text-gray-800"}`}>
                   Expert in <span className="font-medium">responsive design</span> using Tailwind/Bootstrap
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-yellow-400 mr-3 text-xl">✦</span>
-                <p className="text-gray-300">
+                <span className={`${theme==="dark"?"text-yellow-400":"text-yellow-700"} mr-3 text-xl`}>✦</span>
+                <p className={`${theme === "dark" ? "text-gray-300":"text-gray-800"}`}>
                   Passionate about <span className="font-medium">clean code</span> and optimization
                 </p>
               </div>

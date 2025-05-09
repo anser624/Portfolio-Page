@@ -1,39 +1,42 @@
 import React from "react";
-import { useState } from "react";
-import { createContext } from "react";
-
-
-export const themecontext = createContext();
+import { useState, useContext } from "react";
+// import { Link } from "react-router-dom
+import { themecontext } from "../../App";
 
 const Navbar = () => {
-  const [theme, setTheme] = useState("dark");
+  const { theme, toggleTheme } = useContext(themecontext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  const toggleMenu = ()=>{
-    setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <themecontext.Provider value={{theme,toggleTheme} }>
+    <>
       <nav
-        className={`transition-colors py-3 duration-1200 ease-in-out sticky top-0 z-50
-        ${theme === "dark" ? "bg-gradient-to-br from-gray-900 to-blue-900" : "bg-gradient-to-br from-gray-100 to-blue-100"}
-        text-${theme === "light" ? "black" : "white"} border-gray-200 `}
+        className={`transition-all py-3 border-b-2 ${
+          theme === "dark" ? "border-slate-700" : "border-slate-400"
+        } ease-in-out sticky top-0 z-50 ${
+          theme === "dark"
+            ? "bg-gradient-to-br from-gray-900 to-blue-900"
+            : "bg-gradient-to-br from-gray-50 to-blue-300"
+        } text-${theme === "light" ? "black" : "white"} border-gray-200`}
       >
-        <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
-            <span className="self-center text-4xl font-bold whitespace-nowrap dark:text-white">
-              Portfolio
-            </span>
-          <div className="flex items-center flex-col md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-4">
+          <span
+            className={`bg-gradient-to-r font-bold text-4xl animate-pulse ${
+              theme === "dark"
+                ? "from-cyan-400 to-blue-600"
+                : "from-blue-400 to-cyan-600"
+            } bg-clip-text text-transparent`}
+          >
+            Portfolio
+          </span>
+          <div className="flex items-center md:order-2">
             <button
-            onClick={toggleMenu}
+              onClick={toggleMenu}
               data-collapse-toggle="navbar-user"
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-user"
               aria-expanded={isMenuOpen}
             >
@@ -47,40 +50,42 @@ const Navbar = () => {
               >
                 <path
                   stroke="currentColor"
-                  // stroke-Linecap="round"
-                  // stroke-Linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>
             </button>
           </div>
           <div
-            className={`items-center  duration-300 ease-in-out justify-between ${isMenuOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`}
+            className={`items-center justify-end w-full md:flex md:w-auto md:order-2 ${
+              isMenuOpen ? "block" : "hidden"
+            }`}
             id="navbar-user"
           >
             <ul
-              className={`flex transition-colors duration-300 ease-in-out flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg 
-            md:space-x-8
-             rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   
-             dark:border-gray-700 text-${theme === "light" ? "black" : "white"}`}
+              className={`flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border border-gray-100
+                 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700 ${
+                theme === "light" ? "text-black" : "text-white"
+              }`}
             >
               <li>
                 <a
-                  href="#"
-                  className={`block py-2 px-3 text-${theme==="light" ?"black" : "white"} rounded-sm hover:bg-gray-100 md:hover:bg-transparent
-                   md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 
-                   dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  href="/"
+                  className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                    theme === "light" ? "text-black" : "text-white"
+                  }`}
                 >
                   Home
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
-                  className={`block py-2 px-3 text-${theme==="light" ?"black" : "white"} rounded-sm hover:bg-gray-100 md:hover:bg-transparent
-                   md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 
-                   dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}
+                  href="/"
+                  className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                    theme === "light" ? "text-black" : "text-white"
+                  }`}
                 >
                   About
                 </a>
@@ -88,9 +93,9 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className={`block py-2 px-3 text-${theme==="light" ?"black" : "white"} rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 
-                  md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white 
-                  md:dark:hover:bg-transparent dark:border-gray-700`}
+                  className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                    theme === "light" ? "text-black" : "text-white"
+                  }`}
                 >
                   Project
                 </a>
@@ -99,18 +104,20 @@ const Navbar = () => {
                 onClick={toggleTheme}
                 className="cursor-pointer flex gap-1 items-center"
               >
-                <p className="capitalize 
-                hover:bg-gray-100 md:hover:bg-transparent 
-                  md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700
-                   dark:hover:text-white md:dark:hover:bg-transparent  dark:border-gray-700">
-                    {theme === "dark" ? "light" : "dark"}</p>
-                    {theme === "dark" ? "☀️" : "🌙"}
+                <p
+                  className={`capitalize hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                    theme === "light" ? "text-black" : "text-white"
+                  }`}
+                >
+                  {theme === "dark" ? "light" : "dark"}
+                </p>
+                {theme === "dark" ? "☀️" : "🌙"}
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    </themecontext.Provider>
+    </>
   );
 };
 

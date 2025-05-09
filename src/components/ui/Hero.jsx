@@ -1,18 +1,15 @@
 import React, { useContext } from "react";
-import { themecontext } from "./Navbar"; // Import your theme context
+import { themecontext } from "../../App"; // Import your theme context
 
 const Hero = () => {
   const themecont = useContext(themecontext); // Get theme from context
-    const {theme} = themecont;
-    const toggleTheme = () => {
-      setTheme(theme === "dark" ? "light" : "dark");
-    };
+    const {theme,toggleTheme} = themecont;
   return (
     <div 
       className={`flex flex-col md:flex-row h-auto min-h-screen px-6 sm:px-6 lg:px-8 ${
         theme === "dark" 
           ? "bg-gradient-to-br from-gray-950 to-blue-900" 
-          : "bg-gradient-to-br from-gray-100 to-blue-100"
+          : "bg-gradient-to-br from-gray-100 to-blue-400"
       }`}
     >
       {/* Text Content - Left Side */}
@@ -47,8 +44,8 @@ const Hero = () => {
             theme === "dark" ? "text-gray-300" : "text-gray-700"
           }`}>
             Transforming
-            <span className={theme === "dark" ? "text-yellow-400" : "text-yellow-600"} font-bold>ideas</span> into
-            <span className={theme === "dark" ? "text-yellow-400" : "text-yellow-600"} font-bold>
+            <span className={`${theme === "dark" ? "text-yellow-400" : "text-yellow-600"} font-bold`}>ideas</span> into
+            <span className={`${theme === "dark" ? "text-yellow-400" : "text-yellow-600"} font-bold`}>
               pixel-perfect realities
             </span>
             . Specializing in high-performance web applications with

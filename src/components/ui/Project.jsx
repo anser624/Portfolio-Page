@@ -1,6 +1,11 @@
 import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
+import {themecontext} from "../../App";
+import { useContext } from "react";
+
 
 const Projects = () => {
+const themecont = useContext(themecontext);
+const {theme,toggletheme} = themecont;
   // Updated project data from your resume
   const projects = [
     {
@@ -32,21 +37,21 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-20 px-4 bg-gradient-to-br from-gray-900 to-blue-900"
-      style={{
-        backgroundImage: 'radial-gradient(at 20% 30%, rgba(31, 41, 55, 0.8) 0, transparent 50%), radial-gradient(at 80% 80%, rgba(30, 58, 138, 0.6) 0, transparent 50%)'
-      }}
+      className={`py-20 px-4 ${theme === "dark" ? "bg-gradient-to-br from-gray-900 to-blue-900" :"bg-gradient-to-br from-gray-100 to-blue-400"}`}
+      // style={{
+      //   backgroundImage: 'radial-gradient(at 20% 30%, rgba(31, 41, 55, 0.8) 0, transparent 50%), radial-gradient(at 80% 80%, rgba(30, 58, 138, 0.6) 0, transparent 50%)'
+      // }}
     >
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 text-transparent bg-clip-text">
+            <span className={`${theme === "dark"?"bg-gradient-to-r from-blue-400 to-blue-600" : "bg-gradient-to-r from-blue-400 to-blue-900"} text-transparent bg-clip-text`}>
               Projects
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto"></div>
-          <p className="text-lg text-blue-200 mt-4 max-w-2xl mx-auto">
+          <p className={`text-lg ${theme === "dark" ? "text-blue-200" : "text-gray-950"} mt-4 max-w-2xl mx-auto`}>
             My practical implementations showcasing web development skills
           </p>
         </div>
@@ -56,29 +61,31 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id}
-              className="group bg-gray-800/40 rounded-xl overflow-hidden border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 backdrop-blur-sm"
+              className={`group ${theme==="dark"?"bg-gray-800/40":"bg-gray-100/40"} rounded-xl overflow-hidden border border-blue-500/20
+               hover:border-blue-400/50 transition-all
+                duration-300 hover:shadow-xl hover:shadow-blue-500/10 backdrop-blur-sm`}
             >
               {/* Project Image */}
-              <div className="relative h-48 bg-gradient-to-br from-gray-800 to-blue-900 overflow-hidden">
+              <div className={`relative h-48 bg-gradient-to-br from-gray-800 to-blue-900 overflow-hidden`}>
                 <div className="absolute inset-0 bg-blue-900/30 group-hover:bg-blue-900/10 transition-all duration-500"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <FaCode className="text-5xl text-blue-400/30 group-hover:text-blue-400/50 transition-all duration-500" />
                 </div>
-                <span className="absolute bottom-4 left-4 text-white text-xl font-bold drop-shadow-lg">
+                <span className={`absolute bottom-4 left-4 text-white text-xl font-bold drop-shadow-lg`}>
                   {project.title}
                 </span>
               </div>
               
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-blue-100 mb-4">{project.description}</p>
+                <h3 className={`text-2xl font-bold ${theme === "dark" ?"text-white" : "text-black"} mb-2`}>{project.title}</h3>
+                <p className={`${theme === "dark" ? "text-blue-100" : "text-black"} mb-4`}>{project.description}</p>
                 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, index) => (
                     <span 
                       key={index}
-                      className="px-3 py-1 bg-blue-900/40 text-blue-200 text-sm rounded-full border border-blue-700/30"
+                      className={`px-3 py-1 ${theme==="dark"?"bg-blue-900/40":"bg-blue-200/40"} ${theme==="dark"?"text-blue-200":"text-black"} text-sm rounded-full border border-blue-700/30`}
                     >
                       {tag}
                     </span>
