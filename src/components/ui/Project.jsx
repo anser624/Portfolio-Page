@@ -1,7 +1,9 @@
 import { FaGithub, FaExternalLinkAlt, FaCode } from "react-icons/fa";
 import {themecontext} from "../../App";
 import { useContext } from "react";
-
+import img1 from "../../assets/img/img1.png"; // Import your images here
+import img2 from "../../assets/img/img2.png"; // Import your images here
+import img3 from "../../assets/img/img3.png"; // Import your images here
 
 const Projects = () => {
 const themecont = useContext(themecontext);
@@ -10,6 +12,7 @@ const {theme,toggletheme} = themecont;
   const projects = [
     {
       id: 1,
+      img: img1,
       title: "React E-Commerce Store",
       description: "Fully responsive e-commerce website with modern interface, product listings, and Firebase integration.",
       tags: ["React", "Tailwind CSS", "Firebase"],
@@ -18,6 +21,7 @@ const {theme,toggletheme} = themecont;
     },
     {
       id: 2,
+      img : img2,
       title: "Weather App",
       description: "Weather application fetching real-time data with temperature display and location search.",
       tags: ["JavaScript", "API Integration", "CSS"],
@@ -26,6 +30,7 @@ const {theme,toggletheme} = themecont;
     },
     {
       id: 3,
+      img: img3,
       title: "Text-Utils App",
       description: "React-based utility for text manipulation with dark mode and real-time previews.",
       tags: ["React", "Tailwind CSS", "Responsive UI"],
@@ -69,11 +74,12 @@ const {theme,toggletheme} = themecont;
               <div className={`relative h-48 bg-gradient-to-br from-gray-800 to-blue-900 overflow-hidden`}>
                 <div className="absolute inset-0 bg-blue-900/30 group-hover:bg-blue-900/10 transition-all duration-500"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <FaCode className="text-5xl text-blue-400/30 group-hover:text-blue-400/50 transition-all duration-500" />
+                  <img className="object-fit" src={project.img} alt="" />
+                  {/* <FaCode className="text-5xl text-blue-400/30 group-hover:text-blue-400/50 transition-all duration-500" /> */}
                 </div>
-                <span className={`absolute bottom-4 left-4 text-white text-xl font-bold drop-shadow-lg`}>
+                {/* <span className={`absolute bottom-4 left-4 text-white text-xl font-bold drop-shadow-lg`}>
                   {project.title}
-                </span>
+                </span> */}
               </div>
               
               <div className="p-6">

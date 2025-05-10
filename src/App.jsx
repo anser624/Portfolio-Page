@@ -6,6 +6,8 @@ import Hero from './components/ui/Hero';
 import About from './components/ui/About';
 import Project from './components/ui/Project';
 import Footer from './components/ui/Footer';
+import Contact from './components/ui/Contact';
+import Faq from './components/ui/Faq';
 
 export const themecontext = createContext();
 
@@ -19,13 +21,13 @@ function App() {
 
   return (
     <themecontext.Provider value={{ theme, toggleTheme }}>
-    <div className="bg-gradient-to-r from-black via-gray-800 to-gray-900">
     <Navbar/>
     <Hero />
     <About/>
     <Project/>
+    <Contact/>
+    <Faq/>
     <Footer/>
-    </div>
     </themecontext.Provider>
   //   <Router>
   //   <Navbar />
