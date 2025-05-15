@@ -1,6 +1,6 @@
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import { useState ,createContext} from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, createContext } from 'react';
 import Navbar from './components/ui/Navbar';
 import Hero from './components/ui/Hero';
 import About from './components/ui/About';
@@ -12,8 +12,7 @@ import Faq from './components/ui/Faq';
 export const themecontext = createContext();
 
 function App() {
-  // const [theme, setTheme] = useState('dark');
-  const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState("dark");
 
    const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -21,27 +20,26 @@ function App() {
 
   return (
     <themecontext.Provider value={{ theme, toggleTheme }}>
-    <Navbar/>
-    <Hero />
-    <About/>
-    <Project/>
-    <Contact/>
-    <Faq/>
-    <Footer/>
+        <Router>
+          <Navbar />
+          <div>
+            <section id="Hero">
+              <Hero />
+            </section>
+            <section id="About">
+              <About />
+            </section>
+            <section id="Project">
+              <Project />
+            </section>
+            <section id="Contact">
+              <Contact />
+            </section>            
+              <Faq />
+              <Footer />
+          </div>
+        </Router>
     </themecontext.Provider>
-  //   <Router>
-  //   <Navbar />
-  //   <Routes>
-  //     <Route path="/" element={
-  //     <themecontext.Provider value={{ theme, toggleTheme }}>
-  //     <Navbar/>
-  //     <Hero/>
-  //     <About/>
-  //     </themecontext.Provider>} />
-  //     <Route path="/about" element={<About />} />
-  //     <Route path="/projects" element={<Project />} />
-  //   </Routes>
-  // </Router>
   );
 }
 

@@ -75,11 +75,7 @@ const {theme,toggletheme} = themecont;
                 <div className="absolute inset-0 bg-blue-900/30 group-hover:bg-blue-900/10 transition-all duration-500"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <img className="object-fit" src={project.img} alt="" />
-                  {/* <FaCode className="text-5xl text-blue-400/30 group-hover:text-blue-400/50 transition-all duration-500" /> */}
                 </div>
-                {/* <span className={`absolute bottom-4 left-4 text-white text-xl font-bold drop-shadow-lg`}>
-                  {project.title}
-                </span> */}
               </div>
               
               <div className="p-6">

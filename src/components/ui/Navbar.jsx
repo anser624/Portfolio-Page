@@ -1,13 +1,17 @@
 import React from "react";
 import { useState, useContext } from "react";
-// import { Link } from "react-router-dom
 import { themecontext } from "../../App";
-
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(themecontext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -71,34 +75,44 @@ const Navbar = () => {
               }`}
             >
               <li>
-                <a
-                  href="/"
+                <button
+                  onClick={() => scrollToSection("Hero")}
                   className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
                     theme === "light" ? "text-black" : "text-white"
                   }`}
                 >
                   Home
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="/"
+                <button
+                  onClick={() => scrollToSection("About")}
                   className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
                     theme === "light" ? "text-black" : "text-white"
                   }`}
                 >
                   About
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
+                <button
+                  onClick={() => scrollToSection("Project")}
                   className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
                     theme === "light" ? "text-black" : "text-white"
                   }`}
                 >
                   Project
-                </a>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("Contact")}
+                  className={`block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent ${
+                    theme === "light" ? "text-black" : "text-white"
+                  }`}
+                >
+                  Contact
+                </button>
               </li>
               <li
                 onClick={toggleTheme}
