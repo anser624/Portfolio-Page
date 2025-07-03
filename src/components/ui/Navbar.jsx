@@ -27,7 +27,7 @@ const Navbar = () => {
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 px-4">
           <span
-            className={`bg-gradient-to-r font-bold text-4xl animate-pulse ${
+            className={`bg-gradient-to-r font-bold text-5xl animate-pulse ${
               theme === "dark"
                 ? "from-cyan-400 to-blue-600"
                 : "from-blue-400 to-cyan-600"
@@ -69,7 +69,7 @@ const Navbar = () => {
             id="navbar-user"
           >
             <ul
-              className={`flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border border-gray-100
+              className={`flex flex-col justify-end text-xl font-medium p-4 md:p-0 mt-4 border border-gray-100
                  rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:border-gray-700 ${
                 theme === "light" ? "text-black" : "text-white"
               }`}

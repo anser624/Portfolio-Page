@@ -4,6 +4,9 @@ import { useContext } from "react";
 import img1 from "../../assets/img/img1.png"; // Import your images here
 import img2 from "../../assets/img/img2.png"; // Import your images here
 import img3 from "../../assets/img/img3.png"; // Import your images here
+import img4 from "../../assets/img/img4.png"; // Import your images here
+import img5 from "../../assets/img/img5.png"; // Import your images here
+import img6 from "../../assets/img/img6.png"; // Import your images here
 
 const Projects = () => {
 const themecont = useContext(themecontext);
@@ -14,28 +17,55 @@ const {theme,toggletheme} = themecont;
       id: 1,
       img: img1,
       title: "React E-Commerce Store",
-      description: "Fully responsive e-commerce website with modern interface, product listings, and Firebase integration.",
+      description: "Fully responsive e-commerce website with modern interface, product listings, Firebase integration And Add-Product-Page Also .",
       tags: ["React", "Tailwind CSS", "Firebase"],
       githubLink: "#", // Add your GitHub link if available
       liveDemo: "https://phenomenal-truffle-2aaf42.netlify.app/"
     },
     {
       id: 2,
-      img : img2,
-      title: "Weather App",
-      description: "Weather application fetching real-time data with temperature display and location search.",
+      img : img3,
+      title: "Team-Portfolio",
+      description: "Designed and developed a team portfolio website to showcase projects and skills.Built with HTML, CSS, and JavaScript for a interactive user experience.",
       tags: ["JavaScript", "API Integration", "CSS"],
       githubLink: "#", // Add your GitHub link if available
-      liveDemo: "https://weather-app-ansar.netlify.app/"
+      liveDemo: "https://websolution-team.netlify.app/"
     },
     {
       id: 3,
-      img: img3,
+      img: img2,
       title: "Text-Utils App",
-      description: "React-based utility for text manipulation with dark mode and real-time previews.",
+      description: "A React-based tool for text transformations like case change, space removal, and word count, with live preview and dark mode support.",
       tags: ["React", "Tailwind CSS", "Responsive UI"],
       githubLink: "#", // Add your GitHub link if available
       liveDemo: "https://text-utils-app-brown.vercel.app/"
+    },
+    {
+      id: 4,
+      img: img4,
+      title: "Full E-Commerce Website",
+      description: "Complete online store with product management, Firebase authentication, and protected routes.",
+      tags: ["HTML", "CSS", "JavaScript", "Firebase Auth", "E-Commerce"],
+      githubLink: "#", // Add your GitHub link if available
+      liveDemo: "https://ecommerce-mini-hackathon.vercel.app/index.html"
+    },
+    {
+      id: 5,
+      img: img5,
+      title: "Modern Landing Page Clone",
+      description: "A pixel-perfect landing page clone built using React and Tailwind CSS with full responsiveness.",
+      tags: ["React", "Tailwind CSS", "Responsive UI"],
+      githubLink: "#", // Add your GitHub link if available
+      liveDemo: "https://neon-lollipop-3f76af.netlify.app/"
+    },
+    {
+      id: 6,
+      img: img6,
+      title: "Advanced Todo App with RTK Query",
+      description: "Todo app with login/signup system, protected routing, and real-time CRUD using Redux Toolkit Query.",
+      tags: ["React", "Tailwind CSS", "RTK-QUERY"],
+      githubLink: "#", // Add your GitHub link if available
+      liveDemo: "https://redux-toolkit-ansar.netlify.app/login"
     }
   ];
 

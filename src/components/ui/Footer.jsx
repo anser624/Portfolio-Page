@@ -61,7 +61,7 @@ const {theme,toggleTheme} = themeCont;
                   href="tel:933283302096" 
                   className={`${theme==="dark"?"text-blue-200":"text-black"} hover:text-white transition-colors`}
                 >
-                  +92 333 83302096
+                  +92 3283302096
                 </a>
               </div>
               <div className="flex items-start">
