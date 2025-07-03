@@ -65,7 +65,7 @@ const {theme,toggletheme} = themecont;
       description: "Todo app with login/signup system, protected routing, and real-time CRUD using Redux Toolkit Query.",
       tags: ["React", "Tailwind CSS", "RTK-QUERY"],
       githubLink: "#", // Add your GitHub link if available
-      liveDemo: "https://redux-toolkit-ansar.netlify.app/login"
+      liveDemo: "https://redux-toolkit-ansar.netlify.app/"
     }
   ];
 
